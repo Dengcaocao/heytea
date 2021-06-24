@@ -50,6 +50,20 @@
 			}
 		}
 	},
+	"h5": {
+		"devServer": {
+			"proxy": {
+				"/api": {
+					"target": "https://api-remote.xxxx.com",
+					"changeOrigin": true,
+					"secure": false,
+					"pathRewrite": {
+						"^/api": ""
+					}
+				}
+			}
+		}
+	},
 	"quickapp": { /* 快应用特有相关 */
 
 	},
