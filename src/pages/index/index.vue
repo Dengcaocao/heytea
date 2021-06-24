@@ -2,17 +2,21 @@
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
 		<view>
-			<text class="title">{{title}}</text>
+			<text class="title">{{title + count}}</text>
 		</view>
 	</view>
 </template>
 
 <script>
+	import { mapState } from 'vuex'
 	export default {
 		data() {
 			return {
 				title: 'Hello'
 			}
+		},
+		computed: {
+			...mapState(['count'])
 		},
 		onLoad() {
 
