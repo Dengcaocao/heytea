@@ -2,7 +2,7 @@
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
 		<view>
-			<text class="title">{{title + count}}</text>
+			<text class="title">{{title + platform}}</text>
 		</view>
 	</view>
 </template>
@@ -16,7 +16,9 @@
 			}
 		},
 		computed: {
-			...mapState(['count'])
+			...mapState({
+				platform: state => state.device.device.platform
+			})
 		},
 		onLoad() {
 

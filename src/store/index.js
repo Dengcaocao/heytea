@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import device from './modules/device'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-    count: 418
+  modules: {
+    device
   },
+  state: {},
   getters: {},
   mutations: {},
   actions: {}
