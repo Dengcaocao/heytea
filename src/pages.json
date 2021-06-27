@@ -10,19 +10,20 @@
 		{
 			"path": "pages/order/order",
 			"style": {
-				"navigationBarTitleText": "点餐"
+				"navigationBarTitleText": "奈雪の茶",
+				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		},
 		{
 			"path": "pages/pick/pick",
 			"style": {
-				"navigationBarTitleText": "取餐"
+				"navigationBarTitleText": "奈雪の茶"
 			}
 		},
 		{
 			"path": "pages/profile/profile",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "奈雪乐园"
 			}
 		}
 	],
@@ -59,7 +60,7 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "",
+		"navigationBarTitleText": "奈雪の茶",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	}
