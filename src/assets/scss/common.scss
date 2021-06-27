@@ -1,2 +1,30 @@
 // 主题色
 $themeColor: #ADB838;
+
+// 文本主体色
+$themeTextColor: #919293;
+
+// title color
+$themeTitleColor: #5A5B5C;
+
+// 盒子阴影
+$box-shadow: 0 20rpx 20rpx -20rpx rgba($color: #333, $alpha: 0.1);
+
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between{
+  justify-content: space-between;
+}
+
+.flex-c{
+  flex-direction: column;
+}
+
+.flex-align{
+  display: flex;
+  align-items: center;
+}
