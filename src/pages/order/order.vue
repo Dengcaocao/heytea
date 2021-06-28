@@ -5,10 +5,10 @@
 			<view class="location">
 				<view class="address">
 					<text>卓悦中心ONE AVENUE店</text>
-					<text class="iconfont">></text>
+					<text class="iconfont icon-jiantou"></text>
 				</view>
 				<view class="distance">
-					<text class="iconfont">></text>
+					<text class="iconfont icon-04"></text>
 					<text>距离您 896m</text>
 				</view>
 			</view>
@@ -19,7 +19,7 @@
 		<!-- 优惠活动 -->
 		<view class="coupon flex flex-between">
 			<text class="desc">"霸气mini卡"超级购券活动，赶紧去购买</text>
-			<text class="iconfont">></text>
+			<text class="iconfont icon-jiantou"></text>
 		</view>
 		<!-- 菜单内容 -->
 		<view class="content flex" :style="{height: scrollHeight}">
@@ -193,10 +193,17 @@ export default {
 		.address{
 			font-size: 32rpx;
 			margin-bottom: 10rpx;
+			.iconfont{
+				margin-left: 10rpx;
+			}
 		}
 		.distance{
 			font-size: 24rpx;
 			color: $themeTextColor;
+			.iconfont{
+				margin-right: 10rpx;
+				color: $themeColor;
+			}
 		}
 	}
 	.way{

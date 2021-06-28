@@ -10,7 +10,7 @@
 		</view>
 		<!-- content -->
 		<view class="content">
-			<!-- wat -->
+			<!-- way -->
 			<view class="way flex">
 				<view class="invite item flex flex-c">
 					<image src="@/assets/images/index/zq.png" class="icon"></image>
@@ -30,7 +30,7 @@
 					</view>
 					<view class="conversion">
 						<text>进入积分商城兑换奈雪券及周边好礼</text>
-						<text class="iconfont">></text>
+						<text class="iconfont icon-jiantou"></text>
 					</view>
 				</view>
 				<view class="member-code flex flex-c">
@@ -63,7 +63,7 @@
 			<view class="noveity">
 				<view class="noveity-head flex flex-between">
 					<text class="title">会员新鲜事</text>
-					<text class="iconfont">></text>
+					<text class="iconfont icon-youjiantou_huaban"></text>
 				</view>
 				<view class="banner">
 					<view class="banner-item">
@@ -172,11 +172,10 @@
 				}
 			}
 			.conversion{
+				display: flex;
+				align-items: center;
 				font-size: 24rpx;
 				color: $themeTextColor;
-				.iconfont{
-					// font-size: 32rpx;
-				}
 			}
 		}
 		.member-code{
@@ -263,6 +262,11 @@
 			font-size: 32rpx;
     	font-weight: bold;
 			padding: 20rpx 0;
+		}
+		.iconfont{
+			font-size: 40rpx;
+			font-weight: 500;
+			color: $themeTextColor;
 		}
 		.banner{
 			.banner-item{
