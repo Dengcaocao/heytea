@@ -7,7 +7,9 @@ Vue.config.productionTip = false
 
 App.mpType = 'app'
 
-console.log(store.state.count, store.state.device.platform)
+// 初始化设备信息
+store.dispatch('device/getDeviceInfo')
+console.log(store.state.device.device.platform)
 
 const app = new Vue({
   ...App,
