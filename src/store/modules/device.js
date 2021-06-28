@@ -1,5 +1,7 @@
+import { getDevice } from '@/utils/utils'
+
 export default {
-  // namespaced: true,
+  namespaced: true,
   state: {
     device: {
       system: '', // Ios、Android
@@ -13,5 +15,9 @@ export default {
       state.device = data
     }
   },
-  actions: {},
+  actions: {
+    getDeviceInfo ({ commit }) {
+      commit('setDevice', getDevice())
+    }
+  },
 }
