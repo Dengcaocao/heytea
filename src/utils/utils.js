@@ -35,8 +35,20 @@ export function getDevice() {
       device.channel = 'MOBILE'
       break;
   }
+
+  device.platform = 'WEB'
   // #endif
   // #ifdef MP
-
+    // #ifdef MP-WEIXIN
+    device.channel = 'WEIXINMP'
+    // #endif
+    // #ifdef MP-ALIPAY
+    device.channel = 'ALIPAYMP'
+    // #endif
+    /**
+     * TODO 待完善
+     */
   // #endif
+
+  return device
 }
