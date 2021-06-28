@@ -56,7 +56,9 @@
 										<view class="goods-desc">{{good.desc}}</view>
 										<view class="goods-price flex flex-between">
 											<text>¥{{good.price}}</text>
-											<text class="iconfont">+</text>
+											<button type="default" size="mini" class="icon-btn">
+												<text class="iconfont icon-jiahao"></text>
+											</button>
 										</view>
 									</view>
 								</view>
@@ -300,6 +302,16 @@ export default {
 			}
 			.goods-price{
 				font-weight: 600;
+				.icon-btn{
+					width: 44rpx;
+					line-height: 44rpx;
+					padding: 0;
+					margin: 0;
+					color: #FFFFFF;
+					font-size: 32rpx;
+					border-radius: 50%;
+					background-color: $themeColor;
+				}
 			}
 		}
 	}
