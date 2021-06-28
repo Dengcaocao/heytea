@@ -10,6 +10,7 @@
 		</view>
 		<!-- content -->
 		<view class="content">
+			<!-- 用户信息 -->
 			<view class="info-warp">
 				<view class="user-info flex">
 					<view class="avatar">
@@ -26,21 +27,9 @@
 					</view>
 				</view>
 				<view class="account flex">
-					<view class="account-item">
-						<view class="count">***</view>
-						<view class="name">奈雪券</view>
-					</view>
-					<view class="account-item">
-						<view class="count">***</view>
-						<view class="name">积分商城</view>
-					</view>
-					<view class="account-item">
-						<view class="count">***</view>
-						<view class="name">余额</view>
-					</view>
-					<view class="account-item">
-						<view class="count">***</view>
-						<view class="name">礼品卡</view>
+					<view class="account-item" v-for="(account, index) in accountList" :key="index">
+						<view class="count">{{account.count}}</view>
+						<view class="name">{{account.name}}</view>
 					</view>
 				</view>
 			</view>
@@ -70,6 +59,24 @@
 export default {
 	data () {
 		return {
+			accountList: [
+				{
+					count: '***',
+					name: '奈雪券'
+				},
+				{
+					count: '***',
+					name: '积分商城'
+				},
+				{
+					count: '***',
+					name: '余额'
+				},
+				{
+					count: '***',
+					name: '礼品卡'
+				}
+			],
 			newMemberCategory: [
 				{
 					imgUrl: require('@/assets/images/profile/rhyl.png'),
