@@ -53,6 +53,19 @@
 				<image src="@/assets/images/profile/banner.png"></image>
 			</view>
 		</view>
+		<!-- service -->
+		<view class="service">
+			<view class="title">我的服务</view>
+			<view class="service-category flex">
+				<view class="service-item flex flex-c" v-for="(serviceItem, index) in serviceCategory" :key="index">
+					<view class="imgBox">
+						<image :src="serviceItem.imgUrl"></image>
+					</view>
+					<view class="name">{{serviceItem.name}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="foot">会员卡适用于奈雪的茶和奈雪酒屋指定范围</view>
 	</view>
 </template>
 <script>
@@ -97,6 +110,40 @@ export default {
 				{
 					imgUrl: require('@/assets/images/profile/nxbz.png'),
 					name: '奈雪宝藏'
+				}
+			],
+			serviceCategory: [
+				{
+					imgUrl: require('@/assets/images/profile/jfqd.png'),
+					name: '积分签到'
+				},
+				{
+					imgUrl: require('@/assets/images/profile/stxy.png'),
+					name: '送她心愿'
+				},
+				{
+					imgUrl: require('@/assets/images/profile/nxsc.png'),
+					name: '奈雪商城'
+				},
+				{
+					imgUrl: require('@/assets/images/profile/lxkf.png'),
+					name: '联系客服'
+				},
+				{
+					imgUrl: require('@/assets/images/profile/wddd.png'),
+					name: '我的订单'
+				},
+				{
+					imgUrl: require('@/assets/images/profile/wdzl.png'),
+					name: '我的资料'
+				},
+				{
+					imgUrl: require('@/assets/images/profile/shdz.png'),
+					name: '收货地址'
+				},
+				{
+					imgUrl: require('@/assets/images/profile/gdfw.png'),
+					name: '更多服务'
 				}
 			]
 		}
@@ -239,5 +286,41 @@ export default {
 		height: 100%;
 		border-radius: $border-radius;
 	}
+}
+.service{
+	padding: 32rpx 30rpx 10rpx;
+	box-shadow: $box-shadow;
+	background-color: #FFFFFF;
+	.title{
+		font-size: 32rpx;
+		font-weight: 700;
+		color: $themeTitleColor;
+		margin-bottom: 20rpx;
+	}
+	.service-category{
+		flex-wrap: wrap;
+		.service-item{
+			width: 25%;
+			margin-bottom: 40rpx;
+			.imgBox{
+				image{
+					width: 80rpx;
+					height: 80rpx;
+					display: block;
+					margin-bottom: 20rpx;
+				}
+			}
+			.name{
+				font-size: 24rpx;
+				color: $themeTextColor;
+			}
+		}
+	}
+}
+.foot{
+	font-size: 22rpx;
+	color: $themeTextColor;
+	padding: 30rpx 0;
+	text-align: center;
 }
 </style>
