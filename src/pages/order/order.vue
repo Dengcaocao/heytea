@@ -24,7 +24,8 @@
 		<!-- 菜单内容 -->
 		<view class="content flex" :style="{height: scrollHeight}">
 			<!-- 菜单 -->
-			<view class="menus">
+			<Menu :menuList="menuList" @setScrollToView="setScrollToView"/>
+			<!-- <view class="menus">
 				<scroll-view class="scroll-menu" :scroll-y="true">
 					<view
 						class="menu-item"
@@ -37,7 +38,7 @@
 						<view class="tag" v-show="item.cartNum > 0">{{item.cartNum}}</view>
 					</view>
 				</scroll-view>
-			</view>
+			</view> -->
 			<!-- 商品列表 -->
 			<view class="goods-list">
 				<scroll-view class="scroll-goods" :scroll-y="true" :scroll-into-view="scrollToView">
@@ -89,6 +90,7 @@
 	</view>
 </template>
 <script>
+import Menu from './components/menu.vue'
 export default {
 	data() {
 		return {
@@ -187,7 +189,6 @@ export default {
 					cartNum: 0
 				}
 			],
-			currentMenu: 0,
 			swiperData: [
 				'https://img-shop.qmimg.cn/s23107/2020/04/27/4ebdb582a5185358c4.jpg?imageView2/2/w/600/h/600',
 				'https://images.qmai.cn/s23107/2020/05/08/c25de6ef72d2890630.png?imageView2/2/w/600/h/600',
@@ -262,6 +263,9 @@ export default {
 			return total
 		}
 	},
+	components: {
+		Menu
+	},
 	onLoad () {
 		/**
 		 * 从本地获取购物车数据
@@ -302,9 +306,8 @@ export default {
 				}).exec()
 			})
 		},
-		chooseMenu (index) {
-			this.currentMenu = index
-			this.scrollToView = 'category' + index
+		setScrollToView (val) {
+			this.scrollToView = val
 		},
 		setMenuCategoryNum (categoryName, count) {
 			this.menuList = this.menuList.map(menu => {
@@ -408,48 +411,9 @@ export default {
 	}
 }
 .content{
-	.menus,
 	.goods-list,
-	.scroll-menu,
 	.scroll-goods{
 		height: 100%;
-	}
-	.menus{
-		flex: 2;
-		font-size: 26rpx;
-		color: $themeTextColor;
-		background-color: $themeBgColor-gray;
-		.menu-item{
-			position: relative;
-			padding: 30rpx 20rpx;
-			.tag{
-				position: absolute;
-				top: 16rpx;
-				right: 10rpx;
-				width: 34rpx;
-				height: 34rpx;
-				line-height: 34rpx;
-				text-align: center;
-				color: #FFFFFF;
-				border-radius: 50%;
-				font-size: 22rpx;
-				background-color: $themeColor;
-			}
-		}
-		.menu-item:last-child::after {
-			content: "";
-			padding-top: 30rpx;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 96rpx;
-			background-color: $themeBgColor-gray;
-		}
-		.active{
-			color: $themeTitleColor;
-			background-color: #FFFFFF;
-		}
 	}
 	.goods-list{
 		flex: 6;
