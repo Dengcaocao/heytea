@@ -275,10 +275,10 @@ export default {
      * 从本地获取购物车数据
      */
     this.heyteaCart = (uni.getStorageSync('heytea_cart') && JSON.parse(uni.getStorageSync('heytea_cart'))) || []
-		console.log(this.$refs.goodsList)
     this.heyteaCart.forEach(cartCategory => {
-			this.$refs.goodsList.setMenuCategoryNum(cartCategory.category, cartCategory.goods.length)
-      // this.setMenuCategoryNum(cartCategory.category, cartCategory.goods.length)
+			this.$nextTick(() => {
+				this.$refs.goodsList.setMenuCategoryNum(cartCategory.category, cartCategory.goods.length)
+			})
     })
     this.getHeight()
   },
