@@ -15,6 +15,7 @@
         type="default"
 				size="mini"
         class="order"
+				@click="toLogin"
       >去点餐</button>
       <view class="findOrder">查看历史订单</view>
     </view>
@@ -22,7 +23,13 @@
 </template>
 <script>
 export default {
-
+	methods: {
+		toLogin () {
+			uni.navigateTo({
+				url: '/pages/login/login'
+			})
+		}
+	}
 }
 </script>
 <style scoped lang="scss">
