@@ -10,8 +10,7 @@
 		{
 			"path": "pages/order/order",
 			"style": {
-				"navigationBarTitleText": "奈雪の茶",
-				"navigationBarBackgroundColor": "#FFFFFF"
+				"navigationBarTitleText": "奈雪の茶"
 			}
 		},
 		{
@@ -25,8 +24,23 @@
 			"style": {
 				"navigationBarTitleText": "奈雪乐园"
 			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
 		}
 	],
+	"condition": {
+		"current": 0,
+		"list": [
+			{
+				"name": "登录",
+				"path": "pages/login/login"
+			}
+		]
+	},
 	"tabBar": {
 		"color": "#999999",
 		"selectedColor": "#ADB838",
@@ -61,7 +75,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "奈雪の茶",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F8F8F8"
 	}
 }
