@@ -30,6 +30,15 @@
 			"style": {
 				"navigationBarTitleText": "登录"
 			}
+		},
+		{
+			"path": "pages/sign/sign",
+			"style": {
+				"navigationBarTitleText": "每日签到",
+				"h5": {
+					"titleNView": false
+				}
+			}
 		}
 	],
 	"condition": {
