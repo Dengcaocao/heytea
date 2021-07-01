@@ -50,7 +50,7 @@
 		<view class="service">
 			<view class="title">我的服务</view>
 			<view class="service-category flex">
-				<view class="service-item flex flex-c" v-for="(serviceItem, index) in serviceCategory" :key="index">
+				<view class="service-item flex flex-c" v-for="(serviceItem, index) in serviceCategory" :key="index" @click="toSignPage(serviceItem.pageUrl)">
 					<view class="imgBox">
 						<image :src="serviceItem.imgUrl"></image>
 					</view>
@@ -87,7 +87,8 @@ export default {
 			serviceCategory: [
 				{
 					imgUrl: require('@/assets/images/profile/jfqd.png'),
-					name: '积分签到'
+					name: '积分签到',
+					pageUrl: '/pages/sign/sign'
 				},
 				{
 					imgUrl: require('@/assets/images/profile/stxy.png'),
@@ -122,6 +123,13 @@ export default {
 	},
 	components: {
 		MemberCategory
+	},
+	methods: {
+		toSignPage (url) {
+			uni.navigateTo({
+				url
+			})
+		}
 	}
 }
 </script>
