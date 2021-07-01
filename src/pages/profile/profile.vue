@@ -39,14 +39,7 @@
 					<text>新用户加入会员，享会员权益</text>
 					<text>立即加入</text>
 				</view>
-				<view class="category flex">
-					<view class="category-item" v-for="(item, index) in newMemberCategory" :key="index">
-						<!-- <view class="imgIcon"> -->
-							<image class="imgIcon" :src="item.imgUrl"></image>
-						<!-- </view> -->
-						<view class="name">{{item.name}}</view>
-					</view>
-				</view>
+				<MemberCategory widthVal="80rpx" />
 			</view>
 			<!-- ad -->
 			<view class="ad">
@@ -69,6 +62,7 @@
 	</view>
 </template>
 <script>
+import MemberCategory from '@/components/memberCategory.vue'
 export default {
 	data () {
 		return {
@@ -88,28 +82,6 @@ export default {
 				{
 					count: '***',
 					name: '礼品卡'
-				}
-			],
-			newMemberCategory: [
-				{
-					imgUrl: require('@/assets/images/profile/rhyl.png'),
-					name: '入会有礼'
-				},
-				{
-					imgUrl: require('@/assets/images/profile/jfdh.png'),
-					name: '积分兑换'
-				},
-				{
-					imgUrl: require('@/assets/images/profile/sjtq.png'),
-					name: '升级特权'
-				},
-				{
-					imgUrl: require('@/assets/images/profile/srtq.png'),
-					name: '生日特权'
-				},
-				{
-					imgUrl: require('@/assets/images/profile/nxbz.png'),
-					name: '奈雪宝藏'
 				}
 			],
 			serviceCategory: [
@@ -147,6 +119,9 @@ export default {
 				}
 			]
 		}
+	},
+	components: {
+		MemberCategory
 	}
 }
 </script>
@@ -259,22 +234,6 @@ export default {
 		}
 		text:nth-child(2){
 			color: $themeColor;
-		}
-	}
-	.category{
-		padding: 30rpx 0 20rpx;
-		.category-item{
-			flex: 1;
-			text-align: center;
-			.imgIcon{
-				width: 80rpx;
-				height: 80rpx;
-				margin-bottom: 10rpx;
-			}
-			.name{
-				font-size: 24rpx;
-				color: $themeTextColor;
-			}
 		}
 	}
 }
