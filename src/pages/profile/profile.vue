@@ -26,12 +26,7 @@
 						<text class="iconfont icon-jiantou"></text>
 					</view>
 				</view>
-				<view class="account flex">
-					<view class="account-item" v-for="(account, index) in accountList" :key="index">
-						<view class="count">{{account.count}}</view>
-						<view class="name">{{account.name}}</view>
-					</view>
-				</view>
+				<Account itemPadding="30rpx" countMarginBottom="20rpx" />
 			</view>
 			<!-- 新会员 -->
 			<view class="new-member">
@@ -63,27 +58,10 @@
 </template>
 <script>
 import MemberCategory from '@/components/memberCategory.vue'
+import Account from '@/components/account.vue'
 export default {
 	data () {
 		return {
-			accountList: [
-				{
-					count: '***',
-					name: '奈雪券'
-				},
-				{
-					count: '***',
-					name: '积分商城'
-				},
-				{
-					count: '***',
-					name: '余额'
-				},
-				{
-					count: '***',
-					name: '礼品卡'
-				}
-			],
 			serviceCategory: [
 				{
 					imgUrl: require('@/assets/images/profile/jfqd.png'),
@@ -122,7 +100,8 @@ export default {
 		}
 	},
 	components: {
-		MemberCategory
+		MemberCategory,
+		Account
 	},
 	methods: {
 		toSignPage (url) {

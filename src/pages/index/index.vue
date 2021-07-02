@@ -33,7 +33,7 @@
 						<text class="iconfont icon-jiantou"></text>
 					</view>
 				</view>
-				<view class="member-code flex flex-c">
+				<view class="member-code flex flex-c" @click="toPage">
 					<image src="@/assets/images/index/qrcode.png" mode="widthFix"></image>
 					<text>会员码</text>
 				</view>
@@ -93,7 +93,11 @@
 
 		},
 		methods: {
-
+			toPage () {
+				uni.navigateTo({
+					url: '/pages/member-code/member-code'
+				})
+			}
 		}
 	}
 </script>
@@ -244,6 +248,7 @@
 			padding: 20rpx;
 			border-radius: 6rpx;
 			color: $themeTitleColor;
+			box-sizing: content-box;
 			.icon{
 				width: 30rpx;
 				margin-right: 10rpx;
