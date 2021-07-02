@@ -2,6 +2,11 @@ import Vue from 'vue'
 import App from './App'
 import store from './store'
 import { wxShare } from '@/utils/wx-config'
+
+// 引入ui库
+import uView from 'uview-ui'
+Vue.use(uView)
+
 Vue.prototype.$store = store
 
 Vue.config.productionTip = false
