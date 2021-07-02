@@ -37,9 +37,7 @@
 				<MemberCategory widthVal="80rpx" />
 			</view>
 			<!-- ad -->
-			<view class="ad">
-				<image src="@/assets/images/profile/banner.png"></image>
-			</view>
+			<Ad :imgUrl="ad" />
 		</view>
 		<!-- service -->
 		<view class="service">
@@ -59,6 +57,7 @@
 <script>
 import MemberCategory from '@/components/memberCategory.vue'
 import Account from '@/components/account.vue'
+import Ad from '@/components/ad.vue'
 export default {
 	data () {
 		return {
@@ -96,12 +95,14 @@ export default {
 					imgUrl: require('@/assets/images/profile/gdfw.png'),
 					name: '更多服务'
 				}
-			]
+			],
+			ad: require('@/assets/images/profile/banner.png')
 		}
 	},
 	components: {
 		MemberCategory,
-		Account
+		Account,
+		Ad
 	},
 	methods: {
 		toSignPage (url) {
