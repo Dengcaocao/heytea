@@ -20,7 +20,7 @@
         <view class="sign-pregress flex-align" :class="[activeN]">
           <view class="sing-item flex flex-c" v-for="day in 7" :key="day">
             <view>+{{3 * day}}</view>
-            <view class="icon"></view>
+            <view class="icon" :class="{'active': weekDay === 0 ? true : day <= weekDay}"></view>
             <view>{{day}}天</view>
           </view>
         </view>
@@ -41,7 +41,10 @@ export default {
   },
   computed: {
     activeN () {
-      return 'active' + this.count
+      return 'active' + this.weekDay
+      // return {
+      //   width: `calc(100% / 7 * ${this.weekDay === 0 ? 7 : this.weekDay})`
+      // }
     }
   },
   components: {
@@ -90,7 +93,7 @@ export default {
   background-size: cover;
   color: #FFFFFF;
   .sign-num{
-    margin-top: 100rpx;
+    margin-top: 20rpx;
     font-size: 120rpx;
   }
   .tips{
@@ -118,7 +121,11 @@ export default {
   .attendance{
     border-radius: $border-radius;
     padding: 30rpx;
+    text-align: right;
     background-color: #FFFFFF;
+    box-shadow: $box-shadow;
+    margin-top: -60rpx;
+    margin-bottom: $margin-bottom;
     .sign-pregress{
       position: relative;
       width: 100%;
@@ -137,6 +144,7 @@ export default {
       }
       &::after{
         width: 0;
+        transition: 3s;
         background-color: $themeColor;
       }
       .sing-item{
@@ -145,6 +153,7 @@ export default {
         align-items: flex-end;
         view{
           white-space: nowrap;
+          color: $themeTitleColor;
         }
         .icon{
           position: relative;
@@ -153,34 +162,44 @@ export default {
           height: 16rpx;
           border-radius: 50%;
           background-color: $themeBgColor-gray;
+          &.active{
+            background-color: $themeColor;
+          }
         }
       }
     }
     button{
       color: #FFFFFF;
+      margin-top: 30rpx;
       background-color: $themeColor;
+      &::after{
+        border: none;
+      }
     }
   }
-}
-.sign-pregress.active0::after{
-  width: calc(100% / 7 * 1) !important;
+  .record{
+    background-color: royalblue;
+  }
 }
 .sign-pregress.active1::after{
-  width: calc(100% / 7 * 2) !important;
+  width: calc(100% / 7 * 1) !important;
 }
 .sign-pregress.active2::after{
-  width: calc(100% / 7 * 3) !important;
+  width: calc(100% / 7 * 2) !important;
 }
 .sign-pregress.active3::after{
-  width: calc(100% / 7 * 4) !important;
+  width: calc(100% / 7 * 3) !important;
 }
 .sign-pregress.active4::after{
-  width: calc(100% / 7 * 5) !important;
+  width: calc(100% / 7 * 4) !important;
 }
 .sign-pregress.active5::after{
-  width: calc(100% / 7 * 6) !important;
+  width: calc(100% / 7 * 5) !important;
 }
 .sign-pregress.active6::after{
+  width: calc(100% / 7 * 6) !important;
+}
+.sign-pregress.active0::after{
   width: calc(100% / 7 * 7) !important;
 }
 </style>
