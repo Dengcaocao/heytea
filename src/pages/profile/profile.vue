@@ -191,23 +191,6 @@ export default {
 			background-color: #FAB714;
 		}
 	}
-	.account{
-		.account-item{
-			flex: 1;
-			text-align: center;
-			padding: 30rpx;
-			.count{
-				font-weight: 700;
-				color: $themeTitleColor;
-				margin-bottom: 20rpx;
-				font-size: 40rpx;
-			}
-			.name{
-				font-size: 24rpx;
-				color: $themeTextColor;
-			}
-		}
-	}
 }
 .new-member{
 	padding: 30rpx;
@@ -222,15 +205,6 @@ export default {
 		text:nth-child(2){
 			color: $themeColor;
 		}
-	}
-}
-.ad{
-	height: 160rpx;
-	margin-bottom: $margin-bottom;
-	image{
-		width: 100%;
-		height: 100%;
-		border-radius: $border-radius;
 	}
 }
 .service{
