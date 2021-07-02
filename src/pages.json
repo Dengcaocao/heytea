@@ -39,6 +39,12 @@
 					"titleNView": false
 				}
 			}
+		},
+		{
+			"path": "pages/member-code/member-code",
+			"style": {
+				"navigationBarTitleText": "会员码"
+			}
 		}
 	],
 	"condition": {
