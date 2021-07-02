@@ -1,6 +1,7 @@
 <template>
   <view class="sign">
     <!-- 导航栏 -->
+    <!-- ifdef H5 -->
     <selfNav>
       <view slot="left" class="left">
         <button type="default" class="flex">
@@ -9,13 +10,14 @@
       </view>
       <view slot="center" class="title">每日签到</view>
     </selfNav>
+    <!-- endif -->
     <view class="bg flex flex-c">
       <view class="sign-num">4</view>
       <view class="tips flex-align">已连续签到</view>
       <view class="my-integral">我的积分: {{1012}}</view>
     </view>
     <view class="content">
-      <view class="attendance">
+      <view class="attendance" ref="attendance">
         <!-- 周签到 -->
         <view class="sign-pregress flex-align" :class="[activeN]">
           <view class="sing-item flex flex-c" v-for="day in 7" :key="day">
@@ -27,6 +29,12 @@
         <button type="default" size="mini">签到</button>
       </view>
       <!-- 记录 -->
+      <view class="record" :style="{height: scorllHeight}">
+        <!-- <u-cell-group>
+          <u-cell-item icon="setting-fill" title="个人设置"></u-cell-item>
+          <u-cell-item icon="integral-fill" title="会员等级" value="新版本"></u-cell-item>
+        </u-cell-group> -->
+      </view>
     </view>
   </view>
 </template>
@@ -36,7 +44,7 @@ export default {
   data () {
     return {
       weekDay: 0,
-      count: 3
+      scorllHeight: ''
     }
   },
   computed: {
@@ -56,8 +64,28 @@ export default {
      */
     this.weekDay = new Date().getDay()
   },
+  onReady () {
+    this.setHeight()
+  },
   methods: {
-
+    getDom (dom) {
+      return uni.createSelectorQuery().in(this).select(dom)
+    },
+    setHeight () {
+      const { windowHeight } = uni.getSystemInfoSync()
+      new Promise(resolve => {
+        this.getDom('.bg').boundingClientRect(bgdata => {
+          resolve(bgdata)
+        }).exec()
+      }).then(res => {
+        this.getDom('.attendance').boundingClientRect(data => {
+          // 获取元素外边距
+          const computedStyle = getComputedStyle(this.$refs.attendance.$el)
+          const marginTotal = Math.abs(parseInt(computedStyle.marginTop)) - Math.abs(parseInt(computedStyle.marginBottom))
+          this.scorllHeight = windowHeight - (data.height + res.height) + marginTotal + 'px'
+        }).exec()
+      })
+    }
   }
 }
 </script>
