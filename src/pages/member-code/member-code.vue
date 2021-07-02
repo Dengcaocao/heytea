@@ -12,15 +12,21 @@
         <view class="name">xww</view>
       </view>
       <Account :border="true" />
+      <view class="code">
+        <image src="@/assets/images/profile/default.png" mode="widthFix"></image>
+      </view>
+      <view class="tips">支付前出示可累计积分，会员码每30秒更新</view>
     </view>
-    <view class="ad"></view>
+    <Ad imgUrl="https://img-shop.qmimg.cn/s16/images/2020/04/26/4a36d33657677787.png"></Ad>
   </view>
 </template>
 <script>
 import Account from '@/components/account.vue'
+import Ad from '@/components/ad.vue'
 export default {
   components: {
-		Account
+		Account,
+    Ad
 	}
 }
 </script>
@@ -32,6 +38,8 @@ export default {
   background-color: #FFFFFF;
   border-radius: $border-radius;
   box-shadow: $box-shadow2;
+  padding-bottom: 64rpx;
+  margin-bottom: $margin-bottom;
   .user{
     margin-top: 75rpx;
 		.avatar{
@@ -69,6 +77,20 @@ export default {
       margin-bottom: $margin-bottom;
       padding-top: 28rpx;
     }
+  }
+  .code{
+    margin-top: $margin-bottom;
+    image{
+      width: 350rpx;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .tips{
+    color: $themeTextColor;
+    font-size: 24rpx;
+    text-align: center;
+    margin-bottom: 50rpx;
   }
 }
 </style>
