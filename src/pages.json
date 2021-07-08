@@ -57,6 +57,12 @@
 			"style": {
 				"navigationBarTitleText": "券包商品"
 			}
+		},
+		{
+			"path": "pages/coupons/pay-coupons",
+			"style": {
+				"navigationBarTitleText": "购买券包"
+			}
 		}
 	],
 	"condition": {
