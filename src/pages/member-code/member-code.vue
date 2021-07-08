@@ -13,7 +13,7 @@
       </view>
       <Account :border="true" />
       <view class="code">
-        <image src="@/assets/images/profile/default.png" mode="widthFix"></image>
+        <image :src="imgUrl" mode="widthFix"></image>
       </view>
       <view class="tips">支付前出示可累计积分，会员码每30秒更新</view>
     </view>
@@ -21,13 +21,27 @@
   </view>
 </template>
 <script>
+import QRCode from 'qrcode'
 import Account from '@/components/account.vue'
 import Ad from '@/components/ad.vue'
 export default {
+  data () {
+    return {
+      imgUrl: ''
+    }
+  },
   components: {
 		Account,
     Ad
-	}
+	},
+  onLoad () {
+    QRCode.toDataURL('https://www.baidu.com').then(url => {
+      this.imgUrl = url
+    })
+    .catch(err => {
+      console.error(err)
+    })
+  }
 }
 </script>
 <style scoped lang="scss">
