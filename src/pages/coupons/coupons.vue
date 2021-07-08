@@ -2,7 +2,7 @@
   <view class="coupons">
     <scroll-view :scroll-y="true" class="scroll-Y">
       <view class="coupons-list">
-        <view class="coupons-item flex" v-for="(item, index) in couponsList" :key="index">
+        <view class="coupons-item flex" v-for="(item, index) in couponsList" :key="index" @click="jumpPage('/pages/coupons/pay-coupons?id=' + item.price)">
           <view class="img-warp">
             <image :src="item.imgUrl" mode="widthFix"></image>
           </view>
@@ -45,6 +45,13 @@ export default {
           price: 198
         }
       ]
+    }
+  },
+  methods: {
+    jumpPage (url) {
+      uni.navigateTo({
+        url
+      })
     }
   }
 }
