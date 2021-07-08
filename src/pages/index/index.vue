@@ -33,7 +33,7 @@
 						<text class="iconfont icon-jiantou"></text>
 					</view>
 				</view>
-				<view class="member-code flex flex-c" @click="toPage">
+				<view class="member-code flex flex-c" @click="toPage('/pages/member-code/member-code')">
 					<image src="@/assets/images/index/qrcode.png" mode="widthFix"></image>
 					<text>会员码</text>
 				</view>
@@ -48,12 +48,12 @@
 					</view>
 					<image src="@/assets/images/index/yzclh.png" class="bg" mode="widthFix"></image>
 				</view>
-				<view class="activity flex-align category-item">
+				<view class="activity flex-align category-item" @click="toPage('/pages/activity/activity')">
 					<image src="@/assets/images/index/mcsb.png" class="icon" mode="widthFix"></image>
 					<text>买茶送包</text>
 					<image  src="@/assets/images/index/mcsb_bg.png" class="bg" mode="widthFix"></image>
 				</view>
-				<view class="card-bag flex-align category-item">
+				<view class="card-bag flex-align category-item" @click="toPage('/pages/coupons/coupons')">
 					<image src="@/assets/images/index/hyjb.png" class="icon" mode="widthFix"></image>
 					<text>会员劵包</text>
 					<image  src="@/assets/images/index/hyjb_bg.png" class="bg" mode="widthFix"></image>
@@ -93,9 +93,9 @@
 
 		},
 		methods: {
-			toPage () {
+			toPage (path) {
 				uni.navigateTo({
-					url: '/pages/member-code/member-code'
+					url: path
 				})
 			}
 		}
