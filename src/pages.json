@@ -45,6 +45,18 @@
 			"style": {
 				"navigationBarTitleText": "会员码"
 			}
+		},
+		{
+			"path": "pages/activity/activity",
+			"style": {
+				
+			}
+		},
+		{
+			"path": "pages/coupons/coupons",
+			"style": {
+				"navigationBarTitleText": "券包商品"
+			}
 		}
 	],
 	"condition": {
