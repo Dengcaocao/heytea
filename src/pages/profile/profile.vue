@@ -90,7 +90,8 @@ export default {
 				},
 				{
 					imgUrl: require('@/assets/images/profile/shdz.png'),
-					name: '收货地址'
+					name: '收货地址',
+					pageUrl: '/pages/address/address'
 				},
 				{
 					imgUrl: require('@/assets/images/profile/gdfw.png'),

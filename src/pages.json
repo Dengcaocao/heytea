@@ -69,6 +69,18 @@
 			"style": {
 				"navigationBarTitleText": "用户信息"
 			}
+		},
+		{
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "用户地址"
+			}
+		},
+		{
+			"path": "pages/address/addSite",
+			"style": {
+				"navigationBarTitleText": "新增收获地址"
+			}
 		}
 	],
 	"condition": {
