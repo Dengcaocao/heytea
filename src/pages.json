@@ -63,6 +63,12 @@
 			"style": {
 				"navigationBarTitleText": "购买券包"
 			}
+		},
+		{
+			"path": "pages/userinfo/userinfo",
+			"style": {
+				"navigationBarTitleText": "用户信息"
+			}
 		}
 	],
 	"condition": {

@@ -85,7 +85,8 @@ export default {
 				},
 				{
 					imgUrl: require('@/assets/images/profile/wdzl.png'),
-					name: '我的资料'
+					name: '我的资料',
+					pageUrl: '/pages/userinfo/userinfo'
 				},
 				{
 					imgUrl: require('@/assets/images/profile/shdz.png'),
