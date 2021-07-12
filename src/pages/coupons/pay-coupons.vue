@@ -109,6 +109,7 @@ export default {
     background-color: #FFFFFF;
     .info{
       position: relative;
+      margin-bottom: 20rpx;
       &::before,
       &::after{
         content: "";
@@ -127,7 +128,6 @@ export default {
         right: -40rpx;
         transform: translateY(50%) translateX(50%);
       }
-      margin-bottom: 20rpx;
       .img-warp{
         width: 150rpx;
         height: 150rpx;
@@ -139,6 +139,7 @@ export default {
       }
       .msg{
         flex: 1;
+        overflow: hidden;
         .count{
           text-align: right;
           font-size: 32rpx;
