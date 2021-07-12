@@ -81,6 +81,12 @@
 			"style": {
 				"navigationBarTitleText": "新增收获地址"
 			}
+		},
+		{
+			"path": "pages/historyOrder/order",
+			"style": {
+				"navigationBarTitleText": "历史订单"
+			}
 		}
 	],
 	"condition": {

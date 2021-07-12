@@ -15,18 +15,18 @@
         type="default"
 				size="mini"
         class="order"
-				@click="toLogin"
+				@click="toPage('/pages/login/login')"
       >去点餐</button>
-      <view class="findOrder">查看历史订单</view>
+      <view class="findOrder" @click="toPage('/pages/historyOrder/order')">查看历史订单</view>
     </view>
   </view>
 </template>
 <script>
 export default {
 	methods: {
-		toLogin () {
+		toPage (url) {
 			uni.navigateTo({
-				url: '/pages/login/login'
+				url
 			})
 		}
 	}
