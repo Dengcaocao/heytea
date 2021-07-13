@@ -87,6 +87,12 @@
 			"style": {
 				"navigationBarTitleText": "历史订单"
 			}
+		},
+		{
+			"path": "pages/recharge/recharge",
+			"style": {
+				"navigationBarTitleText": "会员储值"
+			}
 		}
 	],
 	"condition": {

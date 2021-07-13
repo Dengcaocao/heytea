@@ -6,6 +6,7 @@
       :key="index"
       :class="{'addborder': index < accountList.length - 1 && border}"
       :style="{padding: itemPadding}"
+      @click="toPage(account.path)"
     >
       <view class="count" :style="{'margin-bottom': countMarginBottom}">{{account.count}}</view>
       <view class="name">{{account.name}}</view>
@@ -41,7 +42,8 @@ export default {
 				},
 				{
 					count: '***',
-					name: '余额'
+					name: '余额',
+          path: '/pages/recharge/recharge'
 				},
 				{
 					count: '***',
@@ -49,6 +51,13 @@ export default {
 				}
 			]
     }
+  },
+  methods: {
+    toPage (url) {
+			uni.navigateTo({
+				url
+			})
+		}
   }
 }
 </script>
