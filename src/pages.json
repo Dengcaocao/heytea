@@ -41,6 +41,12 @@
 			}
 		},
 		{
+			"path": "pages/sign/record",
+			"style": {
+				"navigationBarTitleText": "签到记录"
+			}
+		},
+		{
 			"path": "pages/member-code/member-code",
 			"style": {
 				"navigationBarTitleText": "会员码"

@@ -18,54 +18,194 @@
     </view>
     <view class="content">
       <view class="attendance" ref="attendance">
-        <!-- 周签到 -->
-        <view class="sign-pregress flex-align" :class="[activeN]">
-          <view class="sing-item flex flex-c" v-for="day in 7" :key="day">
+        <!-- 周签到:class="[activeN]" -->
+        <view class="title">连续签到赚积分</view>
+        <view class="sign-pregress flex">
+          <view class="sing-item flex flex-c" v-for="day in 7" :key="day" :class="{'active': weekDay === 0 ? true : day <= weekDay}">
             <view>+{{3 * day}}</view>
-            <view class="icon" :class="{'active': weekDay === 0 ? true : day <= weekDay}"></view>
+            <view class="icon" :class="{'active': weekDay === 0 ? true : day <= weekDay}">
+              <text class="iconfont" :class="{'icon-gou': weekDay === 0 ? true : day <= weekDay}"></text>
+            </view>
             <view>{{day}}天</view>
           </view>
         </view>
-        <button type="default" size="mini">签到</button>
+        <view class="btn-box">
+          <button type="default" size="mini">签到</button>
+          <view class="txt" @click="signRecord">查看签到记录</view>
+        </view>
       </view>
-      <!-- 记录 -->
-      <view class="record" :style="{height: scorllHeight}">
-        <u-cell-group>
-          <u-cell-item  title="夕阳无限好" label="夕阳无限好" :arrow="false">
-            <!-- left -->
-            <view class="avatar" slot="icon">
-              <image src="@/assets/images/profile/default.png"></image>
+      <Ad imgUrl="https://images.qmai.cn/s23107/2020/04/30/aed6cdb1db4712f87e.png" />
+      <view class="category">
+        <view class="category-item" v-for="(item, index) in category" :key="index">
+          <view class="head flex flex-between">
+            <text class="title">{{item.title}}</text>
+            <text class="iconfont icon-youjiantou_huaban"></text>
+          </view>
+          <view class="item-content flex-content">
+            <view class="item" v-for="(good, index) in item.list" :key="good.name + index">
+              <image :src="good.imgUrl" mode="widthFix"></image>
+              <view class="item-title text-hide">{{good.name}}</view>
+              <view class="need-integral flex-align">
+                <view>{{good.integral}}<text>积分</text></view>
+                <view v-show="good.price">&nbsp;+ {{good.price}}<text>元</text></view>
+              </view>
+              <view class="surplus-num">剩余{{good.surplusNum}}件</view>
             </view>
-            <!-- right -->
-            <view class="timeAt" slot="right-icon">
-              <view class="integral">{{1012}}<text>签</text></view>
-              <view class="time">{{new Date().toLocaleDateString()}}</view>
-            </view>
-          </u-cell-item>
-        </u-cell-group>
+          </view>
+        </view>
       </view>
     </view>
   </view>
 </template>
 <script>
 import selfNav from '@/components/selfHeadNav.vue'
+import Ad from '@/components/ad.vue'
 export default {
   data () {
     return {
       weekDay: 0,
-      scorllHeight: ''
-    }
-  },
-  computed: {
-    activeN () {
-      return 'active' + this.weekDay
-      // return {
-      //   width: `calc(100% / 7 * ${this.weekDay === 0 ? 7 : this.weekDay})`
-      // }
+      scorllHeight: '',
+      category: [
+        {
+          title: '奈雪好券',
+          list: [
+            {
+              imgUrl: require('@/assets/images/integrals/ticket.png'),
+              name: '软欧包免费券',
+              integral: 800,
+              surplusNum: 99665
+            },
+            {
+              imgUrl: require('@/assets/images/integrals/ticket.png'),
+              name: '买一送一券',
+              integral: 800,
+              surplusNum: 97377
+            },
+            {
+              imgUrl: require('@/assets/images/integrals/ticket.png'),
+              name: '茶饮免费券',
+              integral: 1000,
+              surplusNum: 99111
+            }
+          ]
+        },
+        {
+          title: '奈雪好物',
+          list: [
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/1399a8bee03f3dd13a.jpg',
+              name: '夏日宝藏挂画',
+              integral: 100,
+              price: 99,
+              surplusNum: 29
+            },
+            {
+              imgUrl: 'https://img-shop.qmimg.cn/s23107/2020/04/26/df31e1d42cc4242327.jpg',
+              name: '梅你不行挂画',
+              integral: 100,
+              price: 99,
+              surplusNum: 12
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/e41bb7b1489ec044f7.jpg',
+              name: '霸气橙子公仔',
+              integral: 500,
+              price: 45,
+              surplusNum: 30
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/e41bb7b1489ec044f7.jpg',
+              name: '霸气橙子公仔',
+              integral: 2000,
+              surplusNum: 4
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/6ada410b2d50636859.jpg',
+              name: '霸气草莓公仔',
+              integral: 500,
+              price: 45,
+              surplusNum: 28
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/6ada410b2d50636859.jpg',
+              name: '霸气草莓公仔',
+              integral: 2000,
+              surplusNum: 3
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/c3e522084d9706a96e.jpg',
+              name: '霸气杨梅T恤XXL',
+              integral: 2000,
+              surplusNum: 15
+            }
+          ]
+        },
+        {
+          title: '奈雪联名',
+          list: [
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/b360279d3a9f58d668.jpg',
+              name: '特仑苏奶茶礼盒',
+              integral: 100,
+              price: 105,
+              surplusNum: 3
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/b360279d3a9f58d668.jpg',
+              name: '特仑苏奶茶礼盒',
+              integral: 2800,
+              surplusNum: 2
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/8d862b032568414c99.jpg',
+              name: '人民日报保温杯',
+              integral: 2000,
+              surplusNum: 20
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/85f06751236939431b.jpg',
+              name: '人民日报水壶',
+              integral: 1500,
+              surplusNum: 11
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/2a24bda6e1791c00a0.jpg',
+              name: '人民日报搪瓷缸',
+              integral: 1000,
+              surplusNum: 37
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/4c81b4d86db88e8f87.jpg',
+              name: '生日手机壳 78P',
+              integral: 500,
+              surplusNum: 5
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/064fd765371de1d8b0.jpg',
+              name: '奈雪冻顶乌龙',
+              integral: 2500,
+              surplusNum: 23
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/0b32c3249b8388a403.jpg',
+              name: '奈雪青心乌龙',
+              integral: 1800,
+              surplusNum: 16
+            },
+            {
+              imgUrl: 'https://images.qmai.cn/s23107/2020/04/30/1e5e034a3c61bb9ccd.jpg',
+              name: '奈雪白鸡冠',
+              integral: 1200,
+              surplusNum: 6
+            }
+          ]
+        }
+      ]
     }
   },
   components: {
-    selfNav
+    selfNav,
+    Ad
   },
   onLoad () {
     /**
@@ -93,6 +233,11 @@ export default {
           const marginTotal = Math.abs(parseInt(computedStyle.marginTop)) - Math.abs(parseInt(computedStyle.marginBottom))
           this.scorllHeight = windowHeight - (data.height + res.height) + marginTotal + 'px'
         }).exec()
+      })
+    },
+    signRecord () {
+      uni.navigateTo({
+        url: '/pages/sign/record'
       })
     }
   }
@@ -157,111 +302,143 @@ export default {
   padding: 0 30rpx;
   .attendance{
     border-radius: $border-radius;
-    padding: 30rpx;
-    text-align: right;
+    padding: 20rpx;
     background-color: #FFFFFF;
     box-shadow: $box-shadow;
     margin-top: -60rpx;
     margin-bottom: $margin-bottom;
+    .title{
+      margin: 20rpx 0;
+      font-weight: 700;
+      color: $themeTitleColor;
+      font-size: 16px;
+    }
     .sign-pregress{
-      position: relative;
-      width: 100%;
-      &::before,
-      &::after{
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 100%;
-        height: 6rpx;
-      }
-      &::before{
-        background-color: $themeBgColor-gray;
-      }
-      &::after{
-        width: 0;
-        transition: 3s;
-        background-color: $themeColor;
-      }
       .sing-item{
+        position: relative;
         flex: 1;
-        font-size: 20rpx;
-        align-items: flex-end;
-        view{
-          white-space: nowrap;
-          color: $themeTitleColor;
+        color: rgb(204, 204, 204);
+        // 激活样式
+        &.active{
+          color: rgb(250, 183, 20);
+        }
+        &.active::before,
+        &.active::after{
+          background-color: rgb(250, 183, 20);
+        }
+        // end
+        &::before,
+        &::after{
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20rpx;
+          height: 1rpx;
+          background-color: rgb(204, 204, 204);
+        }
+        &::after{
+          right: 0;
+        }
+        &::before{
+          left: 0;
+        }
+        &:first-child::before,
+        &:last-child::after{
+          display: none;
         }
         .icon{
           position: relative;
           z-index: 99;
-          width: 16rpx;
-          height: 16rpx;
+          width: 14rpx;
+          height: 14rpx;
           border-radius: 50%;
-          background-color: $themeBgColor-gray;
+          margin: 20rpx 0;
+          background-color: rgb(204, 204, 204);
           &.active{
-            background-color: $themeColor;
+            width: 22rpx;
+            height: 22rpx;
+            line-height: 22rpx;
+            text-align: center;
+            color: #FFFFFF;
+            background-color: rgb(250, 183, 20);
+            .iconfont{
+              font-size: 20rpx;
+              font-weight: 700;
+            }
           }
         }
       }
     }
-    button{
-      color: #FFFFFF;
-      margin-top: 30rpx;
-      background-color: $themeColor;
-      &::after{
-        border: none;
-      }
-    }
-  }
-  .record{
-    background-color: #FFFFFF;
-    .avatar{
-      width: 80rpx;
-      height: 80rpx;
-      margin-right: 20rpx;
-      image{
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-      }
-    }
-    .timeAt{
-      text-align: right;
-      .integral{
-        font-size: 56rpx;
-        color: $themeColor;
-        text{
-          font-size: 28rpx;
-          margin-left: 10rpx;
+    .btn-box{
+      text-align: center;
+      button{
+        width: 50%;
+        height: 70rpx;
+        line-height: 70rpx;
+        border-radius: 100rpx;
+        color: #FFFFFF;
+        margin-top: 30rpx;
+        background-color: $themeColor;
+        &::after{
+          border: none;
         }
       }
-      .time{
-        color: $themeTextColor;
-        margin-top: 10rpx;
+      .txt{
+        margin-top: 20rpx;
+        color: $themeColor;
+      }
+    }
+    
+  }
+  .category{
+    .category-item{
+      .head{
+        .title{
+          font-size: 32rpx;
+          font-weight: bold;
+          padding: 20rpx 0;
+          color: $themeTextColor;
+        }
+        .iconfont{
+          font-size: 40rpx;
+          font-weight: 500;
+          color: $themeTextColor;
+        }
+      }
+      .item-content{
+        flex-wrap: wrap;
+        .item{
+          width: 49%;
+          padding: 20rpx;
+          margin-bottom: $margin-bottom;
+          border-radius: $border-radius;
+          background-color: #FFFFFF;
+          image{
+            display: block;
+            width: 100%;
+          }
+          .item-title{
+            font-size: 32rpx;
+            color: $themeTitleColor;
+            font-weight: 700;
+            margin-bottom: 10rpx;
+          }
+          .need-integral{
+            color: $themeColor;
+            text{
+              margin-left: 10rpx;
+              color: $themeTextColor;
+              font-size: 24rpx;
+            }
+          }
+          .surplus-num{
+            color: $themeTextColor;
+            font-size: 24rpx;
+          }
+        }
       }
     }
   }
-}
-.sign-pregress.active1::after{
-  width: calc(100% / 7 * 1) !important;
-}
-.sign-pregress.active2::after{
-  width: calc(100% / 7 * 2) !important;
-}
-.sign-pregress.active3::after{
-  width: calc(100% / 7 * 3) !important;
-}
-.sign-pregress.active4::after{
-  width: calc(100% / 7 * 4) !important;
-}
-.sign-pregress.active5::after{
-  width: calc(100% / 7 * 5) !important;
-}
-.sign-pregress.active6::after{
-  width: calc(100% / 7 * 6) !important;
-}
-.sign-pregress.active0::after{
-  width: calc(100% / 7 * 7) !important;
 }
 </style>
