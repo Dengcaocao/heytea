@@ -47,6 +47,12 @@
 			}
 		},
 		{
+			"path": "pages/sign/integralDetail",
+			"style": {
+				"navigationBarTitleText": "兑换详情"
+			}
+		},
+		{
 			"path": "pages/member-code/member-code",
 			"style": {
 				"navigationBarTitleText": "会员码"

@@ -42,7 +42,7 @@
             <text class="iconfont icon-youjiantou_huaban"></text>
           </view>
           <view class="item-content flex-content">
-            <view class="item" v-for="(good, index) in item.list" :key="good.name + index">
+            <view class="item" v-for="(good, index) in item.list" :key="good.name + index" @click="integralDetail(item.title)">
               <image :src="good.imgUrl" mode="widthFix"></image>
               <view class="item-title text-hide">{{good.name}}</view>
               <view class="need-integral flex-align">
@@ -238,6 +238,11 @@ export default {
     signRecord () {
       uni.navigateTo({
         url: '/pages/sign/record'
+      })
+    },
+    integralDetail (cate) {
+      uni.navigateTo({
+        url: '/pages/sign/integralDetail?cate=' + cate
       })
     }
   }
